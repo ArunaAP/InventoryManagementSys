@@ -6,7 +6,17 @@ const core = require('cors');
 
 const app = express();
 
+//Middlewares
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+app.use(bodyparser.json());
+
 const PORT = process.env.PORT || 5000;
+
+//Routes
+app.get('/', (req, res) => {
+  res.send('Home Page');
+});
 
 //Connect to DB and start server
 mongoose
